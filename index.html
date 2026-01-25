@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Augustine Paul - Full Stack Developer & AI Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 255, 157, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ff9d;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00ff9d;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ff9d;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .contact-btn {
+            background: #00ff9d;
+            color: #0a0a0a;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #00d17a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .hero-content .highlight {
+            color: #00ff9d;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #b0b0b0;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 400px;
+            border-radius: 20px;
+            border: 4px solid #00ff9d;
+            box-shadow: 0 10px 40px rgba(0, 255, 157, 0.3);
+            transition: transform 0.3s;
+            object-fit: cover;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: #1a1a1a;
+            border: 2px solid #00ff9d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ff9d;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .social-links a:hover {
+            background: #00ff9d;
+            color: #0a0a0a;
+            transform: translateY(-5px);
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #00ff9d;
+            text-align: center;
+        }
+
+        /* Education */
+        .education-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .education-info {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .education-info:hover {
+            border-color: #00ff9d;
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
+        }
+
+        .education-info h3 {
+            color: #00ff9d;
+            margin-bottom: 1rem;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #00ff9d;
+            height: 250px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: #00ff9d;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
+        }
+
+        .skill-category h3 {
+            color: #00ff9d;
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #0a0a0a;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #00ff9d;
+            color: #0a0a0a;
+            border-color: #00ff9d;
+        }
+
+        /* Experience */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-item {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #00ff9d;
+            transition: all 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
+        }
+
+        .experience-item h3 {
+            color: #00ff9d;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .company {
+            color: #b0b0b0;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #00ff9d;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 255, 157, 0.3);
+        }
+
+        .project-card h3 {
+            color: #00ff9d;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #00ff9d;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* Leadership & References */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            border-color: #00ff9d;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
+        }
+
+        .info-card h3 {
+            color: #00ff9d;
+            margin-bottom: 1rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .info-card ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #00ff9d;
+            font-weight: bold;
+        }
+
+        .reference-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .reference-item h4 {
+            color: #00ff9d;
+            margin-bottom: 0.5rem;
+        }
+
+        .reference-item p {
+            color: #b0b0b0;
+            margin: 0.25rem 0;
+        }
+
+        /* Contact */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: #00ff9d;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
+        }
+
+        .contact-card h3 {
+            color: #00ff9d;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+            word-break: break-all;
+            display: block;
+        }
+
+        .contact-card a:hover {
+            color: #00ff9d;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-image img {
+                width: 250px;
+                height: 333px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: 2px solid #00ff9d;
+                color: #00ff9d;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                font-size: 1.2rem;
+                cursor: pointer;
+            }
+
+            .education-container {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 200px;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .info-grid,
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-timeline {
+                padding-left: 0;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            nav {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .contact-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .hero-image img {
+                width: 200px;
+                height: 267px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .skill-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .social-links a {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Augustine.P</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+            <a href="#contact" class="contact-btn">Contact Me</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Augustine Paul</span></h1>
+            <p>Full Stack Developer & AI Specialist passionate about creating innovative solutions using cutting-edge technologies.</p>
+            <p>B.Com Computer Applications | AI/ML Enthusiast | MERN Stack Developer</p>
+            <div class="social-links">
+                <a href="mailto:nicholasaugustine05@gmail.com" title="Email">✉</a>
+                <a href="https://linkedin.com/in/augustine-paul10" target="_blank" title="LinkedIn">in</a>
+                <a href="tel:+916379752756" title="Phone">📞</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNzy_ScT3PlFiFzkx7qc725gE3HG6QEouMmw35PSvWbSZ_dcpU_f3BS36r_JltOmIJSfKDN8A-JRxcZQJmaN-fezfUGqGVQL6GzmfJNAxj1YPoBMMvk3q-FrKkO4h30hndXJZrU5OurT9-EpSHJCG9S_yxDKsf_1-v8Td5Ib7YZI2LwWJvcq9Two66uoS9/w245-h320/WhatsApp%20Image%202025-09-23%20at%2020.20.18_f30e0e51.jpg" alt="Augustine Paul">
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-container">
+            <div class="education-info">
+                <h3>B.Com (Computer Applications)</h3>
+                <p><strong>Bishop Heber College, Tiruchirappalli</strong></p>
+                <p>2023 - 2026</p>
+                <p>CGPA: 7.2</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.955!2d78.6869!3d10.7905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5345915d0b9%3A0x4d29c3c7f8c8e7e7!2sBishop%20Heber%20College!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AI/ML</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MERN Stack</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">n8n</span>
+                    <span class="skill-tag">MS Office</span>
+                    <span class="skill-tag">Canva</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Leadership</span>
+                    <span class="skill-tag">Quick Learner</span>
+                    <span class="skill-tag">Team Work</span>
+                    <span class="skill-tag">Adaptability</span>
+                    <span class="skill-tag">Writer</span>
+                    <span class="skill-tag">Song Writer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications & Training</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <h3>Full Stack Developer</h3>
+                <p class="company">Novi Tech</p>
+                <p>Comprehensive training in full-stack development covering React, Node.js, MongoDB, and modern web development practices.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Artificial Intelligence ML</h3>
+                <p class="company">Novi Tech</p>
+                <p>Advanced certification in Machine Learning and Artificial Intelligence, focusing on practical implementation and real-world applications.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Artificial Intelligence</h3>
+                <p class="company">be10x, IIDE, Uptor</p>
+                <p>Multi-platform AI certification covering various aspects of artificial intelligence, deep learning, and AI tools implementation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience & Internships</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <h3>Full Stack Developer</h3>
+                <p class="company">Novi Tech</p>
+                <p>Developed and delivered multiple full-stack projects using React, Node.js, and MongoDB, collaborating with cross-functional teams to build responsive user interfaces and reliable RESTful APIs.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Artificial Intelligence Developer</h3>
+                <p class="company">Novi Tech</p>
+                <p>Completed an internship in Artificial Intelligence, gaining hands-on experience in Machine Learning, Deep Learning, Computer Vision, and Natural Language Processing, and successfully developed small-scale projects applying these concepts to real-world problems.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Digital Marketing Specialist</h3>
+                <p class="company">Infiniti Designing</p>
+                <p>Designed and executed high-impact digital ad creatives across platforms, enhancing brand visibility, customer engagement, and client acquisition.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Agri Tech - AI Crop Disease Detection</h3>
+                <p>Built an AI-based Crop Disease Detection landing website for a state-level hackathon using HTML, CSS, and JavaScript.</p>
+                <a href="https://drive.google.com/file/d/1rAHh1nXd2XBeNOCg-Pq5LzdHHSuzBBKb/view?usp=sharing" target="_blank" class="project-link">View Project →</a>
+            </div>
+            <div class="project-card">
+                <h3>Real Estate Landing Website</h3>
+                <p>Developed and deployed a responsive landing webpage for a real estate company using HTML, CSS, and JavaScript on Vercel.</p>
+            </div>
+            <div class="project-card">
+                <h3>Email Automation System</h3>
+                <p>Implemented automated email workflows using the n8n platform to streamline communication and improve efficiency.</p>
+            </div>
+            <div class="project-card">
+                <h3>Face & Object Recognition</h3>
+                <p>Developed a face recognition and moving object detection system using Python, Deep Learning, and Computer Vision.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="leadership">
+        <h2>Leadership & Contribution</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Team Work & Contribution</h3>
+                <ul>
+                    <li>Executive Member – Commerce Association, Bishop Heber College</li>
+                    <li>Public Relations Officer – Commerce Association, Bishop Heber College</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="references">
+        <h2>References</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="reference-item">
+                    <h4>Dr. Anita Priya Raja</h4>
+                    <p>Training and Placement Officer</p>
+                    <p>Bishop Heber College (Autonomous), Tiruchirappalli</p>
+                    <p>Phone: 9786088211</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="reference-item">
+                    <h4>Mr. Bharani Chandru</h4>
+                    <p>Software Developer, Novi Tech, Coimbatore</p>
+                    <p>Phone: 9597976451</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-info">
+            <div class="contact-card">
+                <h3>Email</h3>
+                <a href="mailto:nicholasaugustine05@gmail.com">nicholasaugustine05@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <h3>Phone</h3>
+                <a href="tel:+916379752756">+91 6379752756</a>
+            </div>
+            <div class="contact-card">
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/augustine-paul10" target="_blank">augustine-paul10</a>
+            </div>
+            <div class="contact-card">
+                <h3>Location</h3>
+                <p>Tiruchirappalli, Tamil Nadu</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Augustine Paul. All rights reserved.</p>
+        <p>Full Stack Developer | AI Specialist | Problem Solver</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Highlight active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '#e0e0e0';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.color = '#00ff9d';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
