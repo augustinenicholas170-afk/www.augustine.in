@@ -179,6 +179,31 @@
             margin-bottom: 2rem;
             color: #00ff9d;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .section-link-btn {
+            background: #00ff9d;
+            color: #0a0a0a;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-link-btn:hover {
+            background: #00d17a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
         }
 
         .education-container {
@@ -204,6 +229,10 @@
         .education-info h3 {
             color: #00ff9d;
             margin-bottom: 1rem;
+        }
+
+        .education-info a:hover {
+            text-decoration: underline;
         }
 
         .map-container {
@@ -295,6 +324,10 @@
             margin-bottom: 1rem;
         }
 
+        .experience-item .company a:hover {
+            color: #00ff9d;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -318,19 +351,11 @@
         .project-card h3 {
             color: #00ff9d;
             margin-bottom: 1rem;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: #00ff9d;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-
-        .project-link:hover {
-            transform: translateX(5px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .info-grid {
@@ -389,6 +414,24 @@
         .reference-item p {
             color: #b0b0b0;
             margin: 0.25rem 0;
+        }
+
+        .amazon-btn {
+            display: inline-block;
+            background: #00ff9d;
+            color: #0a0a0a;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .amazon-btn:hover {
+            background: #00d17a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
         }
 
         .contact-info {
@@ -543,6 +586,7 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#publications">Publications</a></li>
                 <li><a href="#references">References</a></li>
             </ul>
             <a href="#contact" class="contact-btn">Contact Me</a>
@@ -580,7 +624,7 @@
         <div class="education-container">
             <div class="education-info">
                 <h3>B.Com (Computer Applications)</h3>
-                <p><strong>Bishop Heber College, Tiruchirappalli</strong></p>
+                <p><strong><a href="https://bhc.edu.in/" target="_blank" style="color: #00ff9d; text-decoration: none; transition: all 0.3s;">Bishop Heber College, Tiruchirappalli</a></strong></p>
                 <p>2023 - 2026</p>
                 <p>CGPA: 7.2</p>
             </div>
@@ -629,12 +673,12 @@
         <div class="experience-timeline">
             <div class="experience-item">
                 <h3>Full Stack Developer</h3>
-                <p class="company">Novi Tech</p>
+                <p class="company"><a href="https://novitechrd.com" target="_blank" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s;">Novi Tech</a></p>
                 <p>Comprehensive training in full-stack development covering React, Node.js, MongoDB, and modern web development practices.</p>
             </div>
             <div class="experience-item">
                 <h3>Artificial Intelligence ML</h3>
-                <p class="company">Novi Tech</p>
+                <p class="company"><a href="https://novitechrd.com" target="_blank" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s;">Novi Tech</a></p>
                 <p>Advanced certification in Machine Learning and Artificial Intelligence, focusing on practical implementation and real-world applications.</p>
             </div>
             <div class="experience-item">
@@ -650,12 +694,12 @@
         <div class="experience-timeline">
             <div class="experience-item">
                 <h3>Full Stack Developer</h3>
-                <p class="company">Novi Tech</p>
+                <p class="company"><a href="https://novitechrd.com" target="_blank" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s;">Novi Tech</a></p>
                 <p>Developed and delivered multiple full-stack projects using React, Node.js, and MongoDB, collaborating with cross-functional teams to build responsive user interfaces and reliable RESTful APIs.</p>
             </div>
             <div class="experience-item">
                 <h3>Artificial Intelligence Developer</h3>
-                <p class="company">Novi Tech</p>
+                <p class="company"><a href="https://novitechrd.com" target="_blank" style="color: #b0b0b0; text-decoration: none; transition: all 0.3s;">Novi Tech</a></p>
                 <p>Completed an internship in Artificial Intelligence, gaining hands-on experience in Machine Learning, Deep Learning, Computer Vision, and Natural Language Processing, and successfully developed small-scale projects applying these concepts to real-world problems.</p>
             </div>
             <div class="experience-item">
@@ -667,12 +711,14 @@
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
+        <h2>
+            <span>Projects</span>
+            <a href="https://drive.google.com/drive/folders/1UlIvRFQthWVsP64b8CyGNPZEewahtNA-?usp=sharing" target="_blank" class="section-link-btn">View All Projects →</a>
+        </h2>
         <div class="projects-grid">
             <div class="project-card">
                 <h3>Agri Tech - AI Crop Disease Detection</h3>
                 <p>Built an AI-based Crop Disease Detection landing website for a state-level hackathon using HTML, CSS, and JavaScript.</p>
-                <a href="https://drive.google.com/drive/folders/1UlIvRFQthWVsP64b8CyGNPZEewahtNA-?usp=sharing" class="project-link">View Project →</a>
             </div>
             <div class="project-card">
                 <h3>Real Estate Landing Website</h3>
@@ -698,6 +744,20 @@
                     <li>Executive Member – Commerce Association, Bishop Heber College</li>
                     <li>Public Relations Officer – Commerce Association, Bishop Heber College</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <h2>Publications</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📚 Book Publication</h3>
+                <div class="reference-item">
+                    <h4>Matters of Life</h4>
+                    <p style="margin-top: 1rem; margin-bottom: 1rem;">A collection of thoughts and reflections on life's important matters.</p>
+                    <a href="https://amzn.in/d/boYNsr3" target="_blank" class="amazon-btn">View on Amazon →</a>
+                </div>
             </div>
         </div>
     </section>
@@ -744,6 +804,17 @@
             </div>
             <div class="contact-card">
                 <h3>GitHub</h3>
-                <a href="augustinenicholas170-afk ·">
+                <a href="https://github.com/augustinepaul10" target="_blank">augustinepaul10</a>
+            </div>
+            <div class="contact-card">
+                <h3>Location</h3>
+                <p>Tiruchirappalli, Tamil Nadu</p>
+            </div>
+        </div>
+    </section>
 
-
+    <footer>
+        <p>&copy; 2026 Augustine Paul. All rights reserved.</p>
+    </footer>
+</body>
+</html>
