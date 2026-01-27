@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Augustine Paul - Full Stack Developer & AI Specialist</title>
-    <link rel="icon" type="img/ x- icon" href="https://tse4.mm.bing.net/th/id/OIP.opYPmHADHDBGd0rQ3Tyl1gHaGE?w=1588&h=1300&rs=1&pid=ImgDetMain&o=7&rm=3">
     <style>
         * {
             margin: 0;
@@ -90,6 +89,35 @@
             background: #00d17a;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #00ff9d;
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         .hero {
@@ -208,10 +236,12 @@
         }
 
         .education-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
-            align-items: start;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .education-info {
@@ -220,6 +250,8 @@
             border-radius: 15px;
             border: 2px solid transparent;
             transition: all 0.3s;
+            width: 100%;
+            text-align: center;
         }
 
         .education-info:hover {
@@ -236,18 +268,6 @@
             text-decoration: underline;
         }
 
-        .map-container {
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid #00ff9d;
-            height: 250px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
 
         .skills-grid {
             display: grid;
@@ -496,16 +516,55 @@
                 height: 333px;
             }
 
+            /* Mobile Navigation Styles */
+            .hamburger {
+                display: flex;
+            }
+
             .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
+                background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                transition: right 0.3s ease-in-out;
+                box-shadow: -5px 0 20px rgba(0, 255, 157, 0.1);
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                font-size: 1.1rem;
+                border-radius: 10px;
+                background: rgba(0, 255, 157, 0.05);
+                transition: all 0.3s;
+            }
+
+            .nav-links a:hover {
+                background: rgba(0, 255, 157, 0.1);
+            }
+
+            .nav-links a::after {
                 display: none;
             }
 
-            .education-container {
-                grid-template-columns: 1fr;
-            }
-
             .map-container {
-                height: 200px;
+                height: 250px;
             }
 
             .skills-grid,
@@ -572,6 +631,10 @@
             .social-links {
                 justify-content: center;
             }
+
+            .nav-links {
+                width: 80%;
+            }
         }
     </style>
 </head>
@@ -579,18 +642,23 @@
     <header>
         <nav>
             <div class="logo">Augustine.P</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#leadership">Leadership</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#references">References</a></li>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#education" onclick="closeMenu()">Education</a></li>
+                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
+                <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#leadership" onclick="closeMenu()">Leadership</a></li>
+                <li><a href="#publications" onclick="closeMenu()">Publications</a></li>
+                <li><a href="#references" onclick="closeMenu()">References</a></li>
             </ul>
             <a href="#contact" class="contact-btn">Contact Me</a>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 
@@ -629,6 +697,7 @@
                 <p>2023 - 2026</p>
                 <p>CGPA: 7.2</p>
             </div>
+            
         </div>
     </section>
 
@@ -814,6 +883,33 @@
     <footer>
         <p>&copy; 2026 Augustine Paul. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnHamburger && navLinks.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    </script>
 </body>
 </html>
-
