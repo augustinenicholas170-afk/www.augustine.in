@@ -851,6 +851,11 @@
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
+                z-index: 1001;
+            }
+            
+            .nav-container {
+                gap: 1rem;
             }
             
             .nav-menu {
@@ -862,30 +867,61 @@
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 2rem;
-                gap: 1.5rem;
+                gap: 1rem;
                 border-top: 1px solid var(--border-color);
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
+                z-index: 1000;
+                max-height: calc(100vh - 80px);
+                overflow-y: auto;
             }
             
             .nav-menu.active {
                 transform: translateX(0);
             }
             
+            .nav-menu a {
+                padding: 0.75rem;
+                display: block;
+            }
+            
+            .nav-menu li:last-child a {
+                display: block;
+                text-align: center;
+            }
+            
+            .contact-btn {
+                padding: 0.75rem 1.5rem;
+                width: 100%;
+            }
+            
+            .hero {
+                padding: 8rem 1rem 2rem;
+                min-height: auto;
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .hero h1 .greeting {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             
             .hero .subtitle {
-                font-size: 1.1rem;
+                font-size: 1rem;
+            }
+            
+            .hero .description {
+                font-size: 0.9rem;
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .section-tag {
+                font-size: 0.8rem;
             }
             
             .skills-grid {
@@ -893,24 +929,184 @@
             }
             
             section {
-                padding: 80px 1.5rem;
+                padding: 60px 1.5rem;
             }
             
             .profile-image-wrapper {
-                width: 300px;
-                height: 400px;
+                width: 280px;
+                height: 380px;
+                border-radius: 20px;
             }
             
             .section-header {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 1.5rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .view-all-btn {
+                width: 100%;
+                justify-content: center;
             }
             
             .cert-grid,
             .projects-grid,
             .references-grid,
-            .contact-grid {
+            .contact-grid,
+            .leadership-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .education-card,
+            .cert-card,
+            .project-card,
+            .reference-card,
+            .contact-item {
+                padding: 2rem 1.5rem;
+            }
+            
+            .education-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .project-icon,
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .social-links {
+                gap: 1rem;
+            }
+            
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            
+            .experience-timeline::before {
+                left: -8px;
+            }
+            
+            .experience-item {
+                padding-left: 2rem;
+            }
+            
+            .experience-item::before {
+                left: -12px;
+            }
+            
+            .publication-card {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .publication-icon {
+                font-size: 3rem;
+            }
+            
+            .publication-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .publication-card .book-title {
+                font-size: 1.1rem;
+            }
+            
+            .amazon-link {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+                gap: 0.5rem;
+            }
+            
+            .logo {
+                margin-right: 1rem;
+            }
+            
+            .logo img {
+                height: 40px !important;
+            }
+            
+            .hero {
+                padding: 6rem 1rem 1.5rem;
+            }
+            
+            .hero-container {
+                gap: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 .greeting {
+                font-size: 1.2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-header-left {
+                width: 100%;
+            }
+            
+            section {
+                padding: 50px 1rem;
+            }
+            
+            .profile-image-wrapper {
+                width: 250px;
+                height: 350px;
+            }
+            
+            .contact-grid {
+                gap: 1.5rem;
+            }
+            
+            .contact-item {
+                padding: 1.5rem 1rem;
+                min-height: auto;
+            }
+            
+            .experience-item {
+                padding-left: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .experience-item h3 {
+                font-size: 1.2rem;
+            }
+            
+            .cert-card h3,
+            .education-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .skill-tags {
+                gap: 0.75rem;
+            }
+            
+            .skill-tag {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            
+            footer {
+                padding: 1.5rem 1rem;
             }
         }
     </style>
