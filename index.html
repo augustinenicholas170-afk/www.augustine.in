@@ -8,16 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy-deep:#0a1120;
-    --navy:#0e1830;
-    --navy-panel:#111d38;
-    --navy-panel-2:#0c1526;
-    --hairline:rgba(198,161,91,0.22);
-    --gold:#c6a15b;
-    --gold-bright:#e0bf7f;
-    --ivory:#eee9df;
-    --slate:#93a0b8;
-    --slate-dim:#5f6c85;
+    --navy-deep:#070c1a;
+    --navy:#0c1830;
+    --navy-panel:#101f3f;
+    --navy-panel-2:#0a1428;
+    --hairline:rgba(216,168,74,0.3);
+    --gold:#d8a84a;
+    --gold-bright:#f4c96a;
+    --ivory:#f6f1e4;
+    --slate:#a8b5cc;
+    --slate-dim:#6b7891;
     --serif:'Cormorant Garamond', serif;
     --sans:'Jost', sans-serif;
   }
@@ -42,12 +42,12 @@
     100%{background-position:200% 50%;}
   }
   @keyframes glowPulse{
-    0%,100%{ box-shadow:0 0 12px 0 rgba(198,161,91,0.25), 0 0 0px 0 rgba(198,161,91,0); }
-    50%{ box-shadow:0 0 26px 4px rgba(198,161,91,0.5), 0 0 46px 10px rgba(198,161,91,0.15); }
+    0%,100%{ box-shadow:0 0 12px 0 rgba(216,168,74,0.25), 0 0 0px 0 rgba(216,168,74,0); }
+    50%{ box-shadow:0 0 26px 4px rgba(216,168,74,0.5), 0 0 46px 10px rgba(216,168,74,0.15); }
   }
   @keyframes textGlow{
-    0%,100%{ text-shadow:0 0 18px rgba(198,161,91,0.35), 0 0 2px rgba(224,191,127,0.4); }
-    50%{ text-shadow:0 0 34px rgba(198,161,91,0.65), 0 0 6px rgba(224,191,127,0.7); }
+    0%,100%{ text-shadow:0 0 18px rgba(216,168,74,0.35), 0 0 2px rgba(244,201,106,0.4); }
+    50%{ text-shadow:0 0 34px rgba(216,168,74,0.65), 0 0 6px rgba(244,201,106,0.7); }
   }
   @keyframes floatDot{
     0%{ transform:translateY(0) translateX(0); opacity:0; }
@@ -61,7 +61,7 @@
   }
   @keyframes borderGlow{
     0%,100%{ border-color:var(--hairline); }
-    50%{ border-color:rgba(198,161,91,0.55); }
+    50%{ border-color:rgba(216,168,74,0.55); }
   }
 
   a{color:inherit;text-decoration:none;}
@@ -78,8 +78,8 @@
     position:fixed;
     inset:0;
     background-image:
-      radial-gradient(circle at 15% 8%, rgba(198,161,91,0.06), transparent 45%),
-      radial-gradient(circle at 85% 92%, rgba(198,161,91,0.05), transparent 45%);
+      radial-gradient(circle at 15% 8%, rgba(216,168,74,0.06), transparent 45%),
+      radial-gradient(circle at 85% 92%, rgba(216,168,74,0.05), transparent 45%);
     pointer-events:none;
     z-index:0;
   }
@@ -142,7 +142,7 @@
     letter-spacing:1.5px;
     text-transform:uppercase;
     color:var(--navy-deep);
-    background:linear-gradient(120deg, #a9834b, var(--gold-bright), #fff3d6, var(--gold-bright), #a9834b);
+    background:linear-gradient(120deg, #c2913c, var(--gold-bright), #fff7e2, var(--gold-bright), #c2913c);
     background-size:260% auto;
     padding:9px 20px;
     border-radius:2px;
@@ -153,7 +153,7 @@
   }
   .nav-signin:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 24px -6px rgba(198,161,91,0.55);
+    box-shadow:0 8px 24px -6px rgba(216,168,74,0.55);
   }
 
   .brand{
@@ -164,8 +164,8 @@
     letter-spacing:6px;
     white-space:nowrap;
     background:linear-gradient(90deg,
-      #8a6a34 0%, var(--gold) 20%, var(--gold-bright) 35%,
-      #fff3d6 50%, var(--gold-bright) 65%, var(--gold) 80%, #8a6a34 100%);
+      #8a5f18 0%, var(--gold) 20%, var(--gold-bright) 35%,
+      #fff7e2 50%, var(--gold-bright) 65%, var(--gold) 80%, #8a5f18 100%);
     background-size:220% auto;
     -webkit-background-clip:text;
     background-clip:text;
@@ -211,7 +211,7 @@
     width:3px;height:3px;
     border-radius:50%;
     background:var(--gold-bright);
-    box-shadow:0 0 8px 2px rgba(198,161,91,0.6);
+    box-shadow:0 0 8px 2px rgba(216,168,74,0.6);
     animation-name:floatDot;
     animation-timing-function:linear;
     animation-iteration-count:infinite;
@@ -247,7 +247,7 @@
   }
   .hero h1 span{
     display:block;
-    background:linear-gradient(90deg, var(--gold), var(--gold-bright), #fff3d6, var(--gold-bright), var(--gold));
+    background:linear-gradient(90deg, var(--gold), var(--gold-bright), #fff7e2, var(--gold-bright), var(--gold));
     background-size:220% auto;
     -webkit-background-clip:text;
     background-clip:text;
@@ -316,7 +316,7 @@
   }
   .btn:hover::before{ animation:shineSweep 1s ease forwards; }
   .btn.filled{
-    background:linear-gradient(120deg, #a9834b, var(--gold-bright), #fff3d6, var(--gold-bright), #a9834b);
+    background:linear-gradient(120deg, #c2913c, var(--gold-bright), #fff7e2, var(--gold-bright), #c2913c);
     background-size:260% auto;
     color:var(--navy-deep);
     font-weight:500;
@@ -326,12 +326,12 @@
   .btn.filled:hover{
     filter:brightness(1.15);
     transform:translateY(-2px);
-    box-shadow:0 8px 30px -6px rgba(198,161,91,0.6);
+    box-shadow:0 8px 30px -6px rgba(216,168,74,0.6);
   }
   .btn:not(.filled):hover{
-    background:rgba(198,161,91,0.1);
+    background:rgba(216,168,74,0.1);
     transform:translateY(-2px);
-    box-shadow:0 0 22px rgba(198,161,91,0.35);
+    box-shadow:0 0 22px rgba(216,168,74,0.35);
   }
 
   .scroll-cue{
@@ -348,7 +348,7 @@
     position:absolute;
     top:-30%; left:0;
     width:100%; height:30%;
-    background:linear-gradient(#fff3d6, transparent);
+    background:linear-gradient(#fff7e2, transparent);
     animation:scrollDrip 2.2s ease-in-out infinite;
   }
   @keyframes scrollDrip{
@@ -440,7 +440,7 @@
     position:absolute;
     top:0; left:0;
     width:40%; height:100%;
-    background:linear-gradient(100deg, transparent, rgba(198,161,91,0.14), transparent);
+    background:linear-gradient(100deg, transparent, rgba(216,168,74,0.14), transparent);
     transform:translateX(-160%) skewX(-20deg);
     pointer-events:none;
   }
@@ -455,7 +455,7 @@
     letter-spacing:.5px;
     transition:text-shadow .35s ease;
   }
-  .skill-card:hover h3{ text-shadow:0 0 18px rgba(198,161,91,0.55); }
+  .skill-card:hover h3{ text-shadow:0 0 18px rgba(216,168,74,0.55); }
   .skill-card p{
     color:var(--slate);
     font-size:14px;
@@ -526,7 +526,7 @@
   }
   .tl-org-logo:hover{
     transform:translateY(-2px);
-    box-shadow:0 0 0 1px var(--gold), 0 6px 16px -6px rgba(198,161,91,0.5);
+    box-shadow:0 0 0 1px var(--gold), 0 6px 16px -6px rgba(216,168,74,0.5);
   }
   .tl-org-badge{
     width:34px;
@@ -546,7 +546,7 @@
   }
   .tl-org-badge:hover{
     transform:translateY(-2px);
-    box-shadow:0 0 14px rgba(198,161,91,0.5);
+    box-shadow:0 0 14px rgba(216,168,74,0.5);
   }
   .tl-item ul{padding-left:18px; color:var(--slate); font-size:15px;}
   .tl-item li{margin-bottom:8px;}
@@ -570,7 +570,7 @@
     position:absolute;
     top:0; left:0;
     width:35%; height:100%;
-    background:linear-gradient(100deg, transparent, rgba(198,161,91,0.16), transparent);
+    background:linear-gradient(100deg, transparent, rgba(216,168,74,0.16), transparent);
     transform:translateX(-160%) skewX(-20deg);
     pointer-events:none;
   }
@@ -578,7 +578,7 @@
   .project-card:hover{
     transform:translateY(-6px);
     border-color:var(--gold);
-    box-shadow:0 20px 44px -18px rgba(198,161,91,0.4), 0 0 0 1px rgba(198,161,91,0.15);
+    box-shadow:0 20px 44px -18px rgba(216,168,74,0.4), 0 0 0 1px rgba(216,168,74,0.15);
   }
   .project-tag{
     font-size:11px;
@@ -645,7 +645,7 @@
     font-weight:600;
     font-size:clamp(32px,5vw,52px);
     margin-bottom:20px;
-    background:linear-gradient(90deg, var(--gold), var(--gold-bright), #fff3d6, var(--gold-bright), var(--gold));
+    background:linear-gradient(90deg, var(--gold), var(--gold-bright), #fff7e2, var(--gold-bright), var(--gold));
     background-size:220% auto;
     -webkit-background-clip:text;
     background-clip:text;
@@ -748,7 +748,8 @@
   <div class="particle-field" id="particleField"></div>
   <div class="hero-inner">
     <div class="eyebrow">Portfolio</div>
-    <h1>Augustine
+    <h1>Augustine P
+      <span>Direct Client Recruiter · Trainee Candidate</span>
     </h1>
     <p class="summary">
       B.Com (Computer Applications) undergraduate with hands-on experience in client communication,
@@ -990,6 +991,7 @@
   <div class="container contact reveal">
     <div class="eyebrow" style="justify-content:center;">Let's Connect</div>
     <h2>Ready for the next role</h2>
+    <p>Immediate joiner, based in Tiruchirappalli, Tamil Nadu — available to work in US shift timings.</p>
     <div class="hero-cta">
       <a href="mailto:nicholasaugustine05@gmail.com" class="btn filled">Email Augustine</a>
       <a href="tel:+916379752756" class="btn">Call +91 6379752756</a>
@@ -1004,7 +1006,7 @@
 
 <footer>
   <span class="mark">A P</span>
-  © 2026 Augustine — Crafted with intent.
+  © 2026 Augustine P — Crafted with intent.
 </footer>
 
 <script>
